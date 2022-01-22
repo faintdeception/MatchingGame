@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://DropZone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TestSurface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CardTable.cs" type="Script" id=4]
+
+[node name="CardTable" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="DropZone" parent="." groups=["zone"] instance=ExtResource( 1 )]
+position = Vector2( 109, 507 )
+
+[node name="DropZone2" parent="." groups=["zone"] instance=ExtResource( 1 )]
+position = Vector2( 502, 510 )
+
+[node name="DropZone3" parent="." groups=["zone"] instance=ExtResource( 1 )]
+position = Vector2( 826, 513 )
+
+[node name="TestSurface" parent="." instance=ExtResource( 3 )]
+position = Vector2( 527, 138 )
+
+[node name="Card" parent="." instance=ExtResource( 2 )]
+position = Vector2( 109, 515 )
+Value = "A"
+
+[node name="Card2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 839, 503 )
+Value = "C"
+
+[node name="Card3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 508, 505 )
+Value = "B"

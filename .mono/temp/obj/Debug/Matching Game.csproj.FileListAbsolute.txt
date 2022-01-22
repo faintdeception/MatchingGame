@@ -1,0 +1,9 @@
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.csproj.AssemblyReference.cache
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.AssemblyInfoInputs.cache
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.AssemblyInfo.cs
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.csproj.CoreCompileInputs.cache
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\bin\Debug\Matching Game.dll
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\bin\Debug\Matching Game.pdb
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.dll
+C:\Users\dbm82\Source\Repos\GameDev\Dreampipe\MatchingGame\.mono\temp\obj\Debug\Matching Game.pdb
