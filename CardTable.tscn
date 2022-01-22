@@ -9,25 +9,25 @@
 script = ExtResource( 4 )
 
 [node name="DropZone" parent="." groups=["zone"] instance=ExtResource( 1 )]
-position = Vector2( 109, 507 )
+position = Vector2( 152, 798 )
 
 [node name="DropZone2" parent="." groups=["zone"] instance=ExtResource( 1 )]
-position = Vector2( 502, 510 )
+position = Vector2( 545, 801 )
 
 [node name="DropZone3" parent="." groups=["zone"] instance=ExtResource( 1 )]
-position = Vector2( 826, 513 )
+position = Vector2( 869, 804 )
 
 [node name="TestSurface" parent="." instance=ExtResource( 3 )]
-position = Vector2( 527, 138 )
+position = Vector2( 557, 400 )
 
 [node name="Card" parent="." instance=ExtResource( 2 )]
-position = Vector2( 109, 515 )
+position = Vector2( 229, 776 )
 Value = "A"
 
 [node name="Card2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 839, 503 )
+position = Vector2( 877, 776 )
 Value = "C"
 
 [node name="Card3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 508, 505 )
+position = Vector2( 557, 776 )
 Value = "B"

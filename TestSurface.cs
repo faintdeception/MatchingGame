@@ -65,7 +65,7 @@ public class TestSurface : Node2D
             Sprite.Frame = 13;
             break;
             case "p":
-            Sprite.Frame = 3;
+            Sprite.Frame = 9;
             break;
             case "q":
             Sprite.Frame = 5;
