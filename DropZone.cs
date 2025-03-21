@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class DropZone : Node2D
+public partial class DropZone : Node2D
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -18,7 +18,7 @@ public class DropZone : Node2D
 
     public override void _Draw()
     {
-        DrawCircle(Vector2.Zero, 75, Color.ColorN("blanchedalmond"));
+        DrawCircle(Vector2.Zero, 75, new Color("blanchedalmond"));
     }
 
     public void Select()
@@ -28,13 +28,13 @@ public class DropZone : Node2D
         //     Deselect(child as Node2D);
             
         // }
-        Modulate = Color.ColorN("webmaroon");
+        Modulate = new Color("webmaroon");
         IsOccupied = true;
     }
 
     public void Deselect()
     {
-        Modulate = Color.ColorN("white");
+        Modulate = new Color("white");
         IsOccupied = false;
     }
 

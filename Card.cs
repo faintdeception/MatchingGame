@@ -2,15 +2,15 @@ using Godot;
 using Godot.Collections;
 using System.Collections.Generic;
 
-public class Card : Node2D
+public partial class Card : Node2D
 {
     bool isSelected = false;
-    Array rest_nodes;
-    Array target_nodes;
+    Array<Node> rest_nodes;
+    Array<Node> target_nodes;
     Vector2? rest_point;
     DropZone currentDropZone;
 
-    Sprite Sprite { get; set; }
+    Sprite2D Sprite2D { get; set; }
 
     private PackedScene explosionScene;
 
@@ -39,90 +39,90 @@ public class Card : Node2D
         }
 
         //Set Sprite
-        Sprite = GetNode("Sprite") as Sprite;
+        Sprite2D = GetNode("Sprite2D") as Sprite2D;
 
         switch (Value.ToLower())
         {
             case "a":
-                Sprite.Frame = 15;
+                Sprite2D.Frame = 15;
                 break;
             case "b":
-                Sprite.Frame = 11;
+                Sprite2D.Frame = 11;
                 break;
             case "c":
-                Sprite.Frame = 7;
+                Sprite2D.Frame = 7;
                 break;
             case "d":
-                Sprite.Frame = 3;
+                Sprite2D.Frame = 3;
                 break;
             case "e":
-                Sprite.Frame = 26;
+                Sprite2D.Frame = 26;
                 break;
             case "f":
-                Sprite.Frame = 22;
+                Sprite2D.Frame = 22;
                 break;
             case "g":
-                Sprite.Frame = 18;
+                Sprite2D.Frame = 18;
                 break;
             case "h":
-                Sprite.Frame = 14;
+                Sprite2D.Frame = 14;
                 break;
             case "i":
-                Sprite.Frame = 10;
+                Sprite2D.Frame = 10;
                 break;
             case "j":
-                Sprite.Frame = 6;
+                Sprite2D.Frame = 6;
                 break;
             case "k":
-                Sprite.Frame = 2;
+                Sprite2D.Frame = 2;
                 break;
             case "l":
-                Sprite.Frame = 23;
+                Sprite2D.Frame = 23;
                 break;
             case "m":
-                Sprite.Frame = 21;
+                Sprite2D.Frame = 21;
                 break;
             case "n":
-                Sprite.Frame = 17;
+                Sprite2D.Frame = 17;
                 break;
             case "o":
-                Sprite.Frame = 13;
+                Sprite2D.Frame = 13;
                 break;
             case "p":
-                Sprite.Frame = 9;
+                Sprite2D.Frame = 9;
                 break;
             case "q":
-                Sprite.Frame = 5;
+                Sprite2D.Frame = 5;
                 break;
             case "r":
-                Sprite.Frame = 1;
+                Sprite2D.Frame = 1;
                 break;
             case "s":
-                Sprite.Frame = 24;
+                Sprite2D.Frame = 24;
                 break;
             case "t":
-                Sprite.Frame = 20;
+                Sprite2D.Frame = 20;
                 break;
             case "u":
-                Sprite.Frame = 16;
+                Sprite2D.Frame = 16;
                 break;
             case "v":
-                Sprite.Frame = 12;
+                Sprite2D.Frame = 12;
                 break;
             case "w":
-                Sprite.Frame = 8;
+                Sprite2D.Frame = 8;
                 break;
             case "x":
-                Sprite.Frame = 4;
+                Sprite2D.Frame = 4;
                 break;
             case "y":
-                Sprite.Frame = 0;
+                Sprite2D.Frame = 0;
                 break;
             case "z":
-                Sprite.Frame = 25;
+                Sprite2D.Frame = 25;
                 break;
             default:
-                Sprite.Frame = 19;
+                Sprite2D.Frame = 19;
                 break;
         }
 
@@ -154,14 +154,15 @@ public class Card : Node2D
 
     private void Explode()
     {
-        var positionX = this.GlobalPosition.x;
-        var positionY = this.GlobalPosition.y;
+        Sprite2D.Visible = false;
+        var positionX = this.GlobalPosition.X;
+        var positionY = this.GlobalPosition.Y;
         var newPosition = new Vector2(positionX, positionY).Normalized();
-        var explosion = explosionScene.Instance() as Explosion;
+        var explosion = explosionScene.Instantiate() as Explosion;
         explosion.Position = this.Position;
         this.GetParent().AddChild(explosion);
         explosion._Ready();
-        explosion.Connect("ExplosionComplete", this, "onExplosionComplete");
+        explosion.Connect("ExplosionComplete", new Callable(this, "onExplosionComplete"));
     }
 
     public void _on_Area2D_input_event(Node n, InputEvent e, int idx)
@@ -182,16 +183,16 @@ public class Card : Node2D
     }
 
     // public override void _on
-
+    
     [Export]
     public string Value { get; set; }
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(float delta)
+    public override void _PhysicsProcess(double delta)
     {
         if (isSelected)
         {
-            var lerpX = Mathf.Lerp(this.GlobalPosition.x, this.GetGlobalMousePosition().x, 25 * delta);
-            var lerpY = Mathf.Lerp(this.GlobalPosition.y, this.GetGlobalMousePosition().y, 25 * delta);
+            var lerpX = (float)Mathf.Lerp(this.GlobalPosition.X, this.GetGlobalMousePosition().X, 25 * delta);
+            var lerpY = (float)Mathf.Lerp(this.GlobalPosition.Y, this.GetGlobalMousePosition().Y, 25 * delta);
             if (lerpX == 0 || lerpY == 0)
                 GD.Print("Gotcha!");
 
@@ -204,8 +205,8 @@ public class Card : Node2D
         {
             //GD.Print("Not Selected");
 
-            var lerpX = Mathf.Lerp(this.GlobalPosition.x, rest_point?.x ?? 0, 10 * delta);
-            var lerpY = Mathf.Lerp(this.GlobalPosition.y, rest_point?.y ?? 0, 10 * delta);
+            var lerpX = (float)Mathf.Lerp(this.GlobalPosition.X, rest_point?.X ?? 0, 10 * delta);
+            var lerpY = (float)Mathf.Lerp(this.GlobalPosition.Y, rest_point?.Y ?? 0, 10 * delta);
             if (this.GlobalPosition.DistanceTo(new Vector2(lerpX, lerpY)) == 0)
             {
                 this.currentDropZone.Select();
@@ -217,12 +218,10 @@ public class Card : Node2D
 
     public override void _Input(InputEvent e)
     {
-        var me = e as InputEventMouseButton;
-
+        var me = e as InputEventMouseButton;        
         if (me != null)
-        {
-
-            if (me.ButtonIndex == (int)ButtonList.Left && !me.IsPressed())
+        {   
+            if (me.ButtonIndex == MouseButton.Left && !me.IsPressed())
             {
                 GD.Print("Released");
                 isSelected = false;
@@ -241,8 +240,6 @@ public class Card : Node2D
                             rest_point = child.GlobalPosition;
                             shortest_distance = distance;
 
-                            
-                            Sprite.Visible = false;
                             //Explode the card.
                             Explode();
 

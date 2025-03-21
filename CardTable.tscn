@@ -1,33 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dnhpq0a6muonv"]
 
-[ext_resource path="res://DropZone.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Card.tscn" type="PackedScene" id=2]
-[ext_resource path="res://TestSurface.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CardTable.cs" type="Script" id=4]
+[ext_resource type="PackedScene" uid="uid://bxvq3kxrgwpvm" path="res://DropZone.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://Card.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bt0l80m7ve2w1" path="res://TestSurface.tscn" id="3"]
+[ext_resource type="Script" path="res://CardTable.cs" id="4"]
 
 [node name="CardTable" type="Node2D"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
-[node name="DropZone" parent="." groups=["zone"] instance=ExtResource( 1 )]
-position = Vector2( 152, 798 )
+[node name="DropZone" parent="." groups=["zone"] instance=ExtResource("1")]
+position = Vector2(152, 798)
 
-[node name="DropZone2" parent="." groups=["zone"] instance=ExtResource( 1 )]
-position = Vector2( 545, 801 )
+[node name="DropZone2" parent="." groups=["zone"] instance=ExtResource("1")]
+position = Vector2(545, 801)
 
-[node name="DropZone3" parent="." groups=["zone"] instance=ExtResource( 1 )]
-position = Vector2( 869, 804 )
+[node name="DropZone3" parent="." groups=["zone"] instance=ExtResource("1")]
+position = Vector2(869, 804)
 
-[node name="TestSurface" parent="." instance=ExtResource( 3 )]
-position = Vector2( 557, 400 )
+[node name="TestSurface" parent="." instance=ExtResource("3")]
+position = Vector2(557, 400)
 
-[node name="Card" parent="." instance=ExtResource( 2 )]
-position = Vector2( 229, 776 )
+[node name="Card" parent="." instance=ExtResource("2")]
+position = Vector2(229, 776)
 Value = "A"
 
-[node name="Card2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 877, 776 )
+[node name="Card2" parent="." instance=ExtResource("2")]
+position = Vector2(877, 776)
 Value = "C"
 
-[node name="Card3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 557, 776 )
+[node name="Card3" parent="." instance=ExtResource("2")]
+position = Vector2(557, 776)
 Value = "B"

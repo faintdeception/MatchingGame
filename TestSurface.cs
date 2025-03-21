@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class TestSurface : Node2D
+public partial class TestSurface : Node2D
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -9,103 +9,116 @@ public class TestSurface : Node2D
     [Export]
     public string MatchingValue {get;set;}
 
-    Sprite Sprite{get;set;}
+    Sprite2D Sprite2D{get;set;}
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        //Set Sprite
-        Sprite = GetNode("Sprite") as Sprite;
+        // Set Sprite
+        Sprite2D = GetNode("Sprite2D") as Sprite2D;
+        GD.Print(MatchingValue);
+
+        int frameIndex = 19; // Default frame index
 
         switch (MatchingValue.ToLower())
         {
             case "a":
-            Sprite.Frame = 15;
-            break;
+                frameIndex = 15;
+                break;
             case "b":
-            Sprite.Frame = 11;
-            break;
+                frameIndex = 11;
+                break;
             case "c":
-            Sprite.Frame = 7;
-            break;
+                frameIndex = 7;
+                break;
             case "d":
-            Sprite.Frame = 3;
-            break;
+                frameIndex = 3;
+                break;
             case "e":
-            Sprite.Frame = 26;
-            break;
+                frameIndex = 26;
+                break;
             case "f":
-            Sprite.Frame = 22;
-            break;
+                frameIndex = 22;
+                break;
             case "g":
-            Sprite.Frame = 18;
-            break;
+                frameIndex = 18;
+                break;
             case "h":
-            Sprite.Frame = 14;
-            break;
+                frameIndex = 14;
+                break;
             case "i":
-            Sprite.Frame = 10;
-            break;
+                frameIndex = 10;
+                break;
             case "j":
-            Sprite.Frame = 6;
-            break;
+                frameIndex = 6;
+                break;
             case "k":
-            Sprite.Frame = 2;
-            break;
+                frameIndex = 2;
+                break;
             case "l":
-            Sprite.Frame = 23;
-            break;
+                frameIndex = 23;
+                break;
             case "m":
-            Sprite.Frame = 21;
-            break;
+                frameIndex = 21;
+                break;
             case "n":
-            Sprite.Frame = 17;
-            break;
+                frameIndex = 17;
+                break;
             case "o":
-            Sprite.Frame = 13;
-            break;
+                frameIndex = 13;
+                break;
             case "p":
-            Sprite.Frame = 9;
-            break;
+                frameIndex = 9;
+                break;
             case "q":
-            Sprite.Frame = 5;
-            break;
+                frameIndex = 5;
+                break;
             case "r":
-            Sprite.Frame = 1;
-            break;
+                frameIndex = 1;
+                break;
             case "s":
-            Sprite.Frame = 24;
-            break;
+                frameIndex = 24;
+                break;
             case "t":
-            Sprite.Frame = 20;
-            break;
+                frameIndex = 20;
+                break;
             case "u":
-            Sprite.Frame = 16;
-            break;
+                frameIndex = 16;
+                break;
             case "v":
-            Sprite.Frame = 12;
-            break;
+                frameIndex = 12;
+                break;
             case "w":
-            Sprite.Frame = 8;
-            break;
+                frameIndex = 8;
+                break;
             case "x":
-            Sprite.Frame = 4;
-            break;
+                frameIndex = 4;
+                break;
             case "y":
-            Sprite.Frame = 0;
-            break;
+                frameIndex = 0;
+                break;
             case "z":
-            Sprite.Frame = 25;
-            break;
-            default:
-            Sprite.Frame = 19;
-            break;
+                frameIndex = 25;
+                break;
+        }
+
+        // Ensure the frame index is within bounds
+        int totalFrames = Sprite2D.Hframes * Sprite2D.Vframes;
+        if (frameIndex >= 0 && frameIndex < totalFrames)
+        {
+            Sprite2D.Frame = frameIndex;
+            GD.Print($"Frame index {frameIndex} set successfully.");
+        }
+        else
+        {
+            GD.PrintErr($"Frame index {frameIndex} is out of bounds. Total frames: {totalFrames}");
         }
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+
+    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+    //  public override void _Process(float delta)
+    //  {
+    //      
+    //  }
 }
