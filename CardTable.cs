@@ -35,20 +35,6 @@ public partial class CardTable : Node2D
 		Card3 = GetNode("Card3") as Card;
 
 
-		// if(Card1HomePosition == Vector2.Zero && Card2HomePosition == Vector2.Zero && Card3HomePosition == Vector2.Zero)
-		// {
-		//     Card1HomePosition = Card.GlobalPosition;            
-		//     Card2HomePosition = Card2.GlobalPosition;            
-		//     Card3HomePosition = Card3.GlobalPosition;            
-		// }
-		// else
-		// {
-		//     Card.GlobalPosition = Card1HomePosition;
-		//     Card2.GlobalPosition = Card2HomePosition;
-		//     Card3.GlobalPosition = Card3HomePosition;
-
-		// }
-
 		//Pick 3 random letters from the alphabet.
 		string randomChars;
 		do{
@@ -69,8 +55,9 @@ public partial class CardTable : Node2D
 		var randomNumber = rng.RandiRange(0, 2);
 		GD.Print(randomNumber);
 		Surface.MatchingValue = randomChars[randomNumber].ToString();
-		Surface._Ready();
-	}
+        GD.Print($"Matching Value {Surface.MatchingValue} Test Surface is Null {Surface is null}");
+        Surface._Ready();
+    }
 
 
 
@@ -90,9 +77,4 @@ public partial class CardTable : Node2D
 		return input.GroupBy(x => x).Any(g => g.Count() > 1);
 	}
 
-	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-	//  public override void _Process(float delta)
-	//  {
-	//      
-	//  }
 }

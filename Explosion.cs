@@ -25,7 +25,8 @@ public partial class Explosion : Node2D
     {
         if (!particles.Emitting)
         {
-            this.EmitSignal(nameof(ExplosionCompleteEventHandler));
+            this.EmitSignal("ExplosionComplete");
+            GD.Print($"Explosion complete {nameof(ExplosionCompleteEventHandler)}");
             QueueFree();
         }
     }

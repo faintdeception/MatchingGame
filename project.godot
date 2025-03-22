@@ -23,6 +23,8 @@ MusicController="*res://AutoLoads/MusicController.tscn"
 
 window/size/viewport_width=1080
 window/size/viewport_height=1080
+window/size/mode=2
+window/size/initial_position_type=0
 window/stretch/mode="2d"
 window/handheld/orientation="sensor"
 window/size/fullscreen=true

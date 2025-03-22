@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class TestSurface : Node2D
 {
@@ -10,13 +9,15 @@ public partial class TestSurface : Node2D
     public string MatchingValue {get;set;}
 
     Sprite2D Sprite2D{get;set;}
+    AnimationTree AnimationTree { get; set; }
+    AnimationNodeStateMachinePlayback StateMachine {get;set;}
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         // Set Sprite
         Sprite2D = GetNode("Sprite2D") as Sprite2D;
-        GD.Print(MatchingValue);
+        GD.Print($"Other matching value: {MatchingValue}");
 
         int frameIndex = 19; // Default frame index
 
@@ -113,6 +114,8 @@ public partial class TestSurface : Node2D
         {
             GD.PrintErr($"Frame index {frameIndex} is out of bounds. Total frames: {totalFrames}");
         }
+        base._Ready();
+
     }
 
 

@@ -142,6 +142,8 @@ public partial class Card : Node2D
 
     public void onExplosionComplete()
     {
+        GD.Print("Explosion completed...reloaded");
+        //SetProcess(!IsProcessing());
         GetParent().GetTree().ReloadCurrentScene();
     }
 
@@ -161,8 +163,8 @@ public partial class Card : Node2D
         var explosion = explosionScene.Instantiate() as Explosion;
         explosion.Position = this.Position;
         this.GetParent().AddChild(explosion);
-        explosion._Ready();
         explosion.Connect("ExplosionComplete", new Callable(this, "onExplosionComplete"));
+        explosion._Ready();
     }
 
     public void _on_Area2D_input_event(Node n, InputEvent e, int idx)
@@ -244,6 +246,7 @@ public partial class Card : Node2D
                             Explode();
 
                             //When the explosion completes, reload the scene.
+
 
 
                         }

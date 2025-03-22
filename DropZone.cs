@@ -19,28 +19,21 @@ public partial class DropZone : Node2D
     public override void _Draw()
     {
         DrawCircle(Vector2.Zero, 75, new Color("blanchedalmond"));
+        GD.Print("Drawn");
     }
 
     public void Select()
     {
-        // foreach (var child in GetTree().GetNodesInGroup("zone"))
-        // {
-        //     Deselect(child as Node2D);
-            
-        // }
-        Modulate = new Color("webmaroon");
+        SelfModulate = new Color("webmaroon");
         IsOccupied = true;
+        //GD.Print("Selected");
     }
 
     public void Deselect()
     {
-        Modulate = new Color("white");
+        SelfModulate = new Color("white");
         IsOccupied = false;
+        DrawCircle(Vector2.Zero, 9000, new Color("orange"));
+        GD.Print("Deselected");
     }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }

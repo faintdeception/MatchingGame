@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnhpq0a6muonv"]
 
 [ext_resource type="PackedScene" uid="uid://bxvq3kxrgwpvm" path="res://DropZone.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://Card.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dx3au0ahxv3hs" path="res://Card.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bt0l80m7ve2w1" path="res://TestSurface.tscn" id="3"]
 [ext_resource type="Script" path="res://CardTable.cs" id="4"]
 
